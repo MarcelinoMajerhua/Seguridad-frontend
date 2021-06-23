@@ -5,7 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Button } from '@material-ui/core';
 import CustomTextField from '../custom-text-field/custom-text-field';
 
-export default function AddressForm() {
+export default function TemplateForm() {
     return (
         <React.Fragment>
             <Grid container spacing={3}>

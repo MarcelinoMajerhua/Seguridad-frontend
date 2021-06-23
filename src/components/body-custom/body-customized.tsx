@@ -14,7 +14,7 @@ function BodyCustomized() {
 
             <CustomBody>
                 <CustomMainForm title={'Titulo del Formulario'}>
-                    {/*<AddressForm />*/}
+                    {/*<TemplateForm />*/}
                     <PaymentForm />
                     {/* <Review />*/}
                 </CustomMainForm>
