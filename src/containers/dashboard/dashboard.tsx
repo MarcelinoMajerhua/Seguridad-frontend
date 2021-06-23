@@ -26,7 +26,7 @@ const rows = [
 function Dashboard() {
    return (
       <React.Fragment>
-         <CustomBodyName>Subir un documento para firmarlo</CustomBodyName>
+         <CustomBodyName>Subir un documento para firmarlo modificado</CustomBodyName>
          <CustomBodyDescription>Se encarga</CustomBodyDescription>
          <CustomBody>
             <TableContainer component={Paper}>
