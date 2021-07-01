@@ -12,7 +12,8 @@ import { Button } from '@material-ui/core';
 function FileUpload() {
    return (
       <React.Fragment>
-        
+         <CustomBodyName title="titulo" height="300">Subir un documento para firmarlo editado</CustomBodyName>
+         <CustomBodyDescription title = "titulo" height="400">Se encarga</CustomBodyDescription>
          <CustomBody>
             <CustomMainForm title={'Subir Documento'}>
                <React.Fragment>
