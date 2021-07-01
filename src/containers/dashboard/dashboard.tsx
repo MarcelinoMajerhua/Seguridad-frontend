@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import CustomBodyName from '../../components/body-custom/custom-body-name';
 import CustomBodyDescription from '../../components/body-custom/custom-body-description';
 import CustomBody from '../../components/body-custom/custom-body';
-import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,7 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import axios, {AxiosResponse} from "axios";
 import {IDocument} from "../../models/document";
 import documentsServices from "../../services/documents-services";
 

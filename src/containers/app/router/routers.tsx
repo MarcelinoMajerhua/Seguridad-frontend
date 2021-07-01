@@ -1,16 +1,23 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import Dashboard from '../../dashboard/dashboard';
-import FileUpload from '../../file-upload/file-upload';
-import Profile from '../../profile/profile';
+import { Redirect, Switch } from 'react-router-dom';
+import BodyLoading from '../../../components/custom-loading/body-loading';
+import LoginRoute from './login-route';
+import MainRoute from './main-route';
+import DefaultPath from './default-path';
+import ErrorsRoute from './errors-route';
 
 function Routers() {
    return (
-      <React.Fragment>
-         <Route exact path='/dashboard' component={Dashboard} />
-         <Route exact path='/profile' component={Profile} />
-         <Route exact path='/file-upload' component={FileUpload} />
-      </React.Fragment>
+      <React.Suspense fallback={<BodyLoading />}>
+         <Switch>
+            <Redirect exact from='/' to={DefaultPath} />
+            <>
+               <LoginRoute />
+               <MainRoute />
+               <ErrorsRoute />
+            </>
+         </Switch>
+      </React.Suspense>
    );
 }
 
