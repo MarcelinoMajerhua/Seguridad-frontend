@@ -11,7 +11,7 @@ interface Props {
     children?: React.ReactNode;
 }
 
-export default function Dashboard({ children }: Props) {
+export default function MainLayout({ children }: Props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
