@@ -9,6 +9,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import { Link, NavLink } from 'react-router-dom';
 
 export const mainListItems = (
    <div>
@@ -24,6 +25,12 @@ export const mainListItems = (
 export const secondaryListItems = (
    <div>
       <ListSubheader inset>Utilidades</ListSubheader>
+      <ListItem component={NavLink}  to={"/registro"} activeClassName='Mui-selected' button>
+         <ListItemIcon>
+            <AssignmentIcon />
+         </ListItemIcon>
+         <ListItemText primary='Registro' />
+      </ListItem>
       <ListItem button>
          <ListItemIcon>
             <AssignmentIcon />
@@ -42,5 +49,6 @@ export const secondaryListItems = (
          </ListItemIcon>
          <ListItemText primary='Perfil' />
       </ListItem>
+
    </div>
 );
