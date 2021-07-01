@@ -1,5 +1,6 @@
 import axios, {AxiosResponse} from "axios";
 import {IDocument} from "../models/document";
+import {store} from "../store/store";
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -7,14 +8,13 @@ const sleep = (delay: number) => {
     });
 };
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
-/*
 axios.interceptors.request.use((config) => {
     const token = store.commonStore.token;
     if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
-});*/
+});
 
 axios.interceptors.response.use(
     async (response) => {
