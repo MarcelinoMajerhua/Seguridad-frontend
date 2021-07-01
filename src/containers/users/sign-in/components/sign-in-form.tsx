@@ -19,9 +19,14 @@ function SignInForm() {
    const [userForm, setUserForm] = useState<UserFormValues>(new UserFormValues(user));
    const [errors, setErrors] = useState('');
 
+   function changeValueUser(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) {
+      const { value, name } = event.target;
+      setUserForm({ ...userForm, [name]: value });
+   }
+
    function submit() {
       userStore.login(userForm).catch((error) => {
-         setErrors('Usuario o contraseña invalidos');
+         setErrors('Dni o contraseña invalidos');
       });
    }
 
@@ -35,6 +40,7 @@ function SignInForm() {
                name='dni'
                autoFocus
                value={userForm.dni}
+               onChange={(event) => changeValueUser(event)}
                type={'text'}
             />
             <CustomTextField
@@ -43,6 +49,7 @@ function SignInForm() {
                label='Password'
                name='password'
                value={userForm.password}
+               onChange={(event) => changeValueUser(event)}
                type={'password'}
             />
 
