@@ -20,7 +20,7 @@ function SignInForm() {
                     required
                     fullWidth
                     id="email"
-                    label="Email Address"
+                    label="Correo electrónico"
                     name="email"
                     autoComplete="email"
                     autoFocus
@@ -31,14 +31,14 @@ function SignInForm() {
                     required
                     fullWidth
                     name="password"
-                    label="Password"
+                    label="Contraseña"
                     type="password"
                     id="password"
                     autoComplete="current-password"
                 />
                 <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
-                    label="Remember me"
+                    label="Recordar cuenta"
                 />
                 <Button
                     type="submit"
@@ -47,17 +47,17 @@ function SignInForm() {
                     color="primary"
                     className={classes.submit}
                 >
-                    Sign In
+                    INGRESAR
                 </Button>
                 <Grid container>
                     <Grid item xs>
                         <Link href="#" variant="body2">
-                            Forgot password?
+                            ¿Olvidaste tu contraseña?
                         </Link>
                     </Grid>
                     <Grid item>
                         <Link href="#" variant="body2">
-                            {"Don't have an account? Sign Up"}
+                            {"¿No tienes una cuenta? Regístrate"}
                         </Link>
                     </Grid>
                 </Grid>
