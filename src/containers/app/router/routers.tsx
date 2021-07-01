@@ -8,7 +8,7 @@ import Registro from '../../registro/registro';
 function Routers() {
    return (
       <React.Fragment>
-         <Route exact path='/' component={Dashboard} />
+         <Route exact path='/dashboard' component={Dashboard} />
          <Route exact path='/profile' component={Profile} />
          <Route exact path='/file-upload' component={FileUpload} />
          <Route exact path = '/registro' component={Registro}/>

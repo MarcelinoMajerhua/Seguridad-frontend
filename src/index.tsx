@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router-dom';
 import './assets/index.css';
 import App from './containers/app/App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserHistory } from 'history';
+export const history = createBrowserHistory();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+   <Router history={history}>
+      <App />
+   </Router>,
+   document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
