@@ -5,11 +5,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const mainListItems = (
    <div>
-      <ListItem button>
+      <ListItem component={NavLink} to={'/dashboard'} activeClassName='Mui-selected' button>
          <ListItemIcon>
             <DashboardIcon />
          </ListItemIcon>
@@ -20,32 +20,38 @@ export const mainListItems = (
 
 export const secondaryListItems = (
    <div>
-      <ListSubheader inset>Utilidades</ListSubheader>
-      <ListItem component={NavLink}  to={"/registro"} activeClassName='Mui-selected' button>
+      <ListSubheader inset>Admin</ListSubheader>
+      <ListItem component={NavLink} to={'/register'} activeClassName='Mui-selected' button>
          <ListItemIcon>
-            <AssignmentIcon />
+            <span className='material-icons'>person_add</span>
          </ListItemIcon>
          <ListItemText primary='Registro' />
       </ListItem>
-      <ListItem button>
+      <ListSubheader inset>Documentos</ListSubheader>
+      <ListItem component={NavLink} to={'/file/sign'} activeClassName='Mui-selected' button>
          <ListItemIcon>
-            <AssignmentIcon />
+            <span className='material-icons'>description</span>
          </ListItemIcon>
          <ListItemText primary='Firmar Documento' />
       </ListItem>
+<<<<<<< HEAD
       <ListItem button>
          
+=======
+
+      <ListItem component={NavLink} to={'/file/check'} activeClassName='Mui-selected' button>
+>>>>>>> dev
          <ListItemIcon>
-            <AssignmentIcon />
+            <span className='material-icons'>task_alt</span>
          </ListItemIcon>
          <ListItemText primary='Verificar Documento' />
       </ListItem>
-      <ListItem button>
+      <ListSubheader inset>Perfiles</ListSubheader>
+      <ListItem component={NavLink} to={'/profile'} activeClassName='Mui-selected' button>
          <ListItemIcon>
-            <AssignmentIcon />
+            <span className='material-icons'>person</span>
          </ListItemIcon>
          <ListItemText primary='Perfil' />
       </ListItem>
-
    </div>
 );

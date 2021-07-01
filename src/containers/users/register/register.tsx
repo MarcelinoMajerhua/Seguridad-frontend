@@ -1,14 +1,11 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
-import ImageAvatars from '../../components/avatar/avatar';
-import CustomBodyDescription from '../../components/body-custom/custom-body-description';
-import CustomBodyName from '../../components/body-custom/custom-body-name';
-import PaymentForm from '../../components/form-register/payment-form';
+import ImageAvatars from '../../../components/avatar/avatar';
+import CustomBodyDescription from '../../../components/body-custom/custom-body-description';
+import CustomBodyName from '../../../components/body-custom/custom-body-name';
+import PaymentForm from '../../../components/form-register/payment-form';
 
-
-
-
-function Registro() {
+function Register() {
     return (
         <React.Fragment>
             <CustomBodyName title="Foto" height="300" >
@@ -22,13 +19,11 @@ function Registro() {
             </CustomBodyName>
 
             <CustomBodyDescription title="Datos del firmante" height="400">
-                <PaymentForm></PaymentForm>
+                <PaymentForm />
             </CustomBodyDescription>
-
-
         </React.Fragment>
 
     )
 }
 
-export default Registro;
+export default Register;
