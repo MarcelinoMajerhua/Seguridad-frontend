@@ -34,13 +34,8 @@ export const secondaryListItems = (
          </ListItemIcon>
          <ListItemText primary='Firmar Documento' />
       </ListItem>
-<<<<<<< HEAD
       <ListItem button>
          
-=======
-
-      <ListItem component={NavLink} to={'/file/check'} activeClassName='Mui-selected' button>
->>>>>>> dev
          <ListItemIcon>
             <span className='material-icons'>task_alt</span>
          </ListItemIcon>
