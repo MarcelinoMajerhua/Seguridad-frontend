@@ -3,9 +3,11 @@ import { Divider, Grid, Paper, Typography } from '@material-ui/core';
 
 interface Props {
     children?: React.ReactNode;
+    title:string;
+    height:string;
 }
 
-function CustomBodyDescription({ children }: Props) {
+function CustomBodyDescription({ children,title,height }: Props) {
     return (
         <Grid item xs={12} md={4} lg={7}>
             <Paper
@@ -13,10 +15,10 @@ function CustomBodyDescription({ children }: Props) {
                     padding: '16px',
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 150,
+                    height: height,
                 }}
             >
-                <Typography variant='h5'>Descripcion:</Typography>
+                <Typography variant='h5'>{title}</Typography>
                 <Divider />
 
                 <Typography style={{ marginTop: '10px' }} variant='body2'>
