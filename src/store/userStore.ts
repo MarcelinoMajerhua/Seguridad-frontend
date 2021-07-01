@@ -18,6 +18,7 @@ export default class UserStore {
 
    login = async (creds: UserFormValues) => {
       this.loading = true;
+
       try {
          const user = await accountsServices.login(creds);
          store.commonStore.setToken(user.token);

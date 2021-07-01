@@ -25,7 +25,7 @@ function SignInForm() {
    }
 
    function submit() {
-      userStore.login(userForm).catch((error) => {
+      userStore.login(userForm).catch(() => {
          setErrors('Dni o contraseña invalidos');
       });
    }
