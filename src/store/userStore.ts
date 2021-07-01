@@ -22,12 +22,10 @@ export default class UserStore {
       try {
          const user = await accountsServices.login(creds);
          store.commonStore.setToken(user.token);
-         console.log(user);
          runInAction(() => {
             this.user = user;
             this.loading = false;
          });
-         console.log(this.loading);
          history.push('/dashboard');
          /*store.modalStore.closeModal();*/
       } catch (e) {

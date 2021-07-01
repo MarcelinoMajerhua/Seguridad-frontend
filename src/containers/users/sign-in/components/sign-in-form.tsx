@@ -6,6 +6,7 @@ import { UserFormValues } from '../../../../models/user';
 import { useStore } from '../../../../store/store';
 import Alert from '@material-ui/lab/Alert';
 import ButtonLoading from '../../../../components/custom-loading/button-loading';
+import { observer } from 'mobx-react-lite';
 
 const user: UserFormValues = {
    dni: '73062536',
@@ -57,6 +58,7 @@ function SignInForm() {
                color='primary'
                className={classes.submit}
                onClick={submit}
+               disabled={userStore.loading}
             >
                Sign In
                {userStore.loading && <ButtonLoading />}
@@ -73,4 +75,4 @@ function SignInForm() {
    );
 }
 
-export default SignInForm;
+export default observer(SignInForm);
