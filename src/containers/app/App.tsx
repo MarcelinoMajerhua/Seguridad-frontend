@@ -3,19 +3,27 @@ import { MuiThemeProvider } from '@material-ui/core';
 import themeMui from '../../themes/theme-mui';
 import Dashboard from '../../components/dashboard/dashboard';
 import Routers from './router/routers';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import LoginRoute from './router/login-route';
+import SignIn from '../users/sign-in/sign-in';
 
 function App() {
    return (
-      <Router>
-         <MuiThemeProvider theme={themeMui}>
-            <Dashboard>
-               <Switch>
-                  <Routers />
-               </Switch>
-            </Dashboard>
-         </MuiThemeProvider>
-      </Router>
+      <MuiThemeProvider theme={themeMui}>
+         <LoginRoute />
+         <Route
+            path={'/(.+)'}
+            render={() => (
+               <>
+                  <Switch>
+                     <Dashboard>
+                        <Routers />
+                     </Dashboard>
+                  </Switch>
+               </>
+            )}
+         />
+      </MuiThemeProvider>
    );
 }
 

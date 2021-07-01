@@ -7,7 +7,7 @@ import Profile from '../../profile/profile';
 function Routers() {
    return (
       <React.Fragment>
-         <Route exact path='/' component={Dashboard} />
+         <Route exact path='/dashboard' component={Dashboard} />
          <Route exact path='/profile' component={Profile} />
          <Route exact path='/file-upload' component={FileUpload} />
       </React.Fragment>
