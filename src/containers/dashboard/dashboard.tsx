@@ -37,9 +37,10 @@ function Dashboard() {
 
 
     return (
+        
         <React.Fragment>
-            <CustomBodyName>Subir un documento para firmarlo</CustomBodyName>
-            <CustomBodyDescription>Se encarga</CustomBodyDescription>
+            <CustomBodyName title="titulo" height="300">Subir un documento para firmarlo</CustomBodyName>
+            <CustomBodyDescription title="Titulo" height="400">Se encarga</CustomBodyDescription>
             <CustomBody>
                 <TableContainer component={Paper}>
                     <Table

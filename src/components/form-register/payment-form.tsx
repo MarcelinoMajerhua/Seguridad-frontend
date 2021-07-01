@@ -9,59 +9,65 @@ import { Button } from '@material-ui/core';
 export default function PaymentForm() {
     return (
         <React.Fragment>
-            <Typography variant='h6' gutterBottom>
-                Payment method
-            </Typography>
+
             <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                     <TextField
                         required
                         id='cardName'
-                        label='Name on card'
+                        label='Nombre Apellido'
                         fullWidth
                         autoComplete='cc-name'
                         variant='standard'
                     />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                     <TextField
                         required
                         id='cardNumber'
-                        label='Card number'
+                        label='Cargo'
                         fullWidth
                         autoComplete='cc-number'
                         variant='standard'
                     />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                     <TextField
                         required
                         id='expDate'
-                        label='Expiry date'
+                        label='Institución'
                         fullWidth
                         autoComplete='cc-exp'
                         variant='standard'
                     />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={6} md={6}>
                     <TextField
                         required
                         id='cvv'
-                        label='CVV'
-                        helperText='Last three digits on signature strip'
+                        label='Firma'
+                        helperText='Combine minúscula, mayúscula y caracteres'
                         fullWidth
                         autoComplete='cc-csc'
                         variant='standard'
+                        type='password'
                     />
-                    
+
 
                 </Grid>
-                <Grid item xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox color='secondary' name='saveCard' value='yes' />}
-                        label='Remember credit card details for next time'
+                <Grid item xs={6} md={6}>
+                    <TextField
+                        required
+                        id='cvv'
+                        label='Confirmar firma'
+                        helperText='Ingrese la firma'
+                        fullWidth
+                        autoComplete='cc-csc'
+                        variant='standard'
+                        type='password'
                     />
                 </Grid>
+
             </Grid>
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Button type={'button'} variant='contained' color={'primary'}>
