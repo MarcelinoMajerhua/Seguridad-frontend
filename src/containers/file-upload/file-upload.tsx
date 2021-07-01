@@ -15,7 +15,7 @@ function FileUpload() {
          <CustomBodyName>Subir un documento para firmarlo</CustomBodyName>
          <CustomBodyDescription>Se encarga</CustomBodyDescription>
          <CustomBody>
-            <CustomMainForm title={'Subir Documento'}>
+            <CustomMainForm title={'Subir Documentos'}>
                <React.Fragment>
                   <Grid container spacing={3}>
                      <Grid item xs={12} sm={6}>
