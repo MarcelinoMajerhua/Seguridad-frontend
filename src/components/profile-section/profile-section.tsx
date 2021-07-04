@@ -175,7 +175,7 @@ function ProfileSection() {
                                           <ExitToAppIcon style={{ fontSize: '1.3rem' }} />
                                        </ListItemIcon>
                                        <ListItemText
-                                          primary={<Typography variant='body2'>Logout</Typography>}
+                                          primary={<Typography variant='body2'>Salir</Typography>}
                                        />
                                     </ListItem>
                                  </List>
