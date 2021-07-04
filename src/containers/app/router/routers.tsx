@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 import BodyLoading from '../../../components/custom-loading/body-loading';
 import LoginRoute from './login-route';
 import MainRoute from './main-route';
@@ -7,7 +7,6 @@ import DefaultPath from './default-path';
 import ErrorsRoute from './errors-route';
 import { useStore } from '../../../store/store';
 import { observer } from 'mobx-react-lite';
-import NotFound from '../../errors/not-found';
 
 function Routers() {
    const { commonStore, userStore } = useStore();

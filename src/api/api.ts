@@ -1,5 +1,4 @@
 import axios, {AxiosResponse} from "axios";
-import {IDocument} from "../models/document";
 import {store} from "../store/store";
 
 const sleep = (delay: number) => {

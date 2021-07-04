@@ -1,7 +1,6 @@
 import React, { lazy } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import MainLayout from '../../../components/dashboard/main-layout';
-import NotFound from '../../errors/not-found';
 
 const Dashboard = lazy(() => import('../../dashboard/dashboard'));
 const Profile = lazy(() => import('../../profile/profile'));

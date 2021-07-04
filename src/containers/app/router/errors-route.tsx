@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import { Route, useLocation, Switch } from 'react-router-dom';
-const NotFound = lazy(() => import('../../errors/not-found'));
+
+/*const NotFound = lazy(() => import('../../errors/not-found'));*/
 const ServerError = lazy(() => import('../../errors/server-error'));
 
 function ErrorsRoute() {
