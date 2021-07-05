@@ -17,13 +17,6 @@ function DocumentWidgetDropzone({ setDocument }: Props) {
    const dzActive = { borderColor: 'green' };
    const onDrop = useCallback(
       (acceptedFiles) => {
-         console.log(
-            acceptedFiles.map((file: any) =>
-               Object.assign(file, {
-                  preview: URL.createObjectURL(file),
-               })
-            )
-         );
          setDocument(
             acceptedFiles.map((file: any) =>
                Object.assign(file, {
@@ -31,6 +24,18 @@ function DocumentWidgetDropzone({ setDocument }: Props) {
                })
             )
          );
+         acceptedFiles.forEach((file: any) => {
+            const reader = new FileReader();
+
+            reader.onabort = () => console.log('file reading was aborted');
+            reader.onerror = () => console.log('file reading has failed');
+            reader.onload = () => {
+               // Do whatever you want with the file contents
+               const binaryStr = reader.result;
+               console.log(binaryStr);
+            };
+            reader.readAsArrayBuffer(file);
+         });
       },
       [setDocument]
    );
