@@ -13,7 +13,7 @@ function CustomMainForm({ title, children }: Props) {
                 {title}
             </Typography>
             <Paper style={{ padding: '20px' }} elevation={3}>
-                {children}
+                {children}  
             </Paper>
         </Container>
     );

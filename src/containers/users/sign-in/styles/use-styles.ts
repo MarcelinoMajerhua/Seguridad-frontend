@@ -1,12 +1,15 @@
 import { makeStyles } from '@material-ui/styles';
 import { Theme } from '@material-ui/core/styles';
 
+
+
 const useStyles = makeStyles((theme :Theme) => ({
     root: {
         height: '100vh',
     },
     image: {
-        backgroundImage: 'url(https://source.unsplash.com/random)',
+        backgroundImage: `url(${"./img/log.png"})`,
+        //backgroundImage: 'url(https://source.unsplash.com/random)',
         backgroundRepeat: 'no-repeat',
         backgroundColor:
             theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme :Theme) => ({
     },
     form: {
         width: '80%', // Fix IE 11 issue.
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(3),
     },
     submit: {
         margin: theme.spacing(3, 0, 2),

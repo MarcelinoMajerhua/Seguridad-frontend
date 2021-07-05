@@ -7,7 +7,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import useStyles from "./styles/use-styles";
 import SignInForm from "./components/sign-in-form";
+import ImageAvatars from '../../../components/avatar/avatar';
 
+//import ImageAvatars from '../img/logo.png';
 export default function SignIn() {
     const classes = useStyles();
 
@@ -17,6 +19,10 @@ export default function SignIn() {
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
+                    <div>
+                    <ImageAvatars src="../img/log.jpg">
+                    </ImageAvatars>
+                    </div>
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
