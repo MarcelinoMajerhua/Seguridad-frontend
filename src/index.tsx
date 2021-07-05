@@ -5,12 +5,16 @@ import './assets/index.css';
 import App from './containers/app/App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from 'history';
+import { store, StoreContext } from './store/store';
+
 export const history = createBrowserHistory();
 
 ReactDOM.render(
-   <Router history={history}>
-      <App />
-   </Router>,
+   <StoreContext.Provider value={store}>
+      <Router history={history}>
+         <App />
+      </Router>
+   </StoreContext.Provider>,
    document.getElementById('root')
 );
 

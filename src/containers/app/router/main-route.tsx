@@ -12,14 +12,7 @@ function MainRoute() {
    const location = useLocation();
    return (
       <Route
-         path={[
-            '/dashboard',
-            '/profile',
-            '/file-upload',
-            '/register',
-            '/file/check',
-            '/file/sign',
-         ]}
+         path={['/dashboard', '/profile', '/file-upload', '/register', '/file/check', '/file/sign']}
       >
          <MainLayout>
             <Switch location={location} key={location.pathname}>

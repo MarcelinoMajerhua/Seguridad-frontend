@@ -12,47 +12,47 @@ import useStyles from './styles/use-styles';
 import ProfileSection from '../profile-section/profile-section';
 
 interface Props {
-    open: boolean;
-    toggleDrawer: () => void;
+   open: boolean;
+   toggleDrawer: () => void;
 }
 
 function Navbar({ toggleDrawer, open }: Props) {
-    const classes = useStyles();
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <AppBar position='absolute' className={clsx(classes.appBar, open && classes.appBarShift)}>
-                <Toolbar className={classes.toolbar}>
-                    <IconButton
-                        edge='start'
-                        color='inherit'
-                        aria-label='open drawer'
-                        onClick={toggleDrawer}
-                        className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography
-                        component='h1'
-                        variant='h6'
-                        color='inherit'
-                        noWrap
-                        style={{
-                            flexGrow: 1,
-                        }}
-                    >
-                        Dashboard
-                    </Typography>
-                    <IconButton color='inherit'>
-                        <Badge badgeContent={4} color='secondary'>
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
-                    <ProfileSection />
-                </Toolbar>
-            </AppBar>
-        </React.Fragment>
-    );
+   const classes = useStyles();
+   return (
+      <React.Fragment>
+         <CssBaseline />
+         <AppBar position='absolute' className={clsx(classes.appBar, open && classes.appBarShift)}>
+            <Toolbar className={classes.toolbar}>
+               <IconButton
+                  edge='start'
+                  color='inherit'
+                  aria-label='open drawer'
+                  onClick={toggleDrawer}
+                  className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+               >
+                  <MenuIcon />
+               </IconButton>
+               <Typography
+                  component='h1'
+                  variant='h6'
+                  color='inherit'
+                  noWrap
+                  style={{
+                     flexGrow: 1,
+                  }}
+               >
+                  Firma Digital
+               </Typography>
+               <IconButton color='inherit'>
+                  <Badge badgeContent={4} color='secondary'>
+                     <NotificationsIcon />
+                  </Badge>
+               </IconButton>
+               <ProfileSection />
+            </Toolbar>
+         </AppBar>
+      </React.Fragment>
+   );
 }
 
 export default Navbar;
