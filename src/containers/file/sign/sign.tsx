@@ -9,30 +9,25 @@ import { Button, Grid, Paper } from '@material-ui/core';
 import CustomTextField from '../../../components/custom-text-field/custom-text-field';
 import DocumentWidgetDropzone from './components/document-widget-dropzone';
 import DocumentPreview from './components/document-preview';
-import { FormDocument } from '../../../models/document';
 import documentsServices from '../../../services/documents-services';
+import ButtonLoading from '../../../components/custom-loading/button-loading';
 
 function Sign() {
    const [document, setDocument] = React.useState<any>([]);
-   React.useEffect(() => {
-      if (document) {
-         console.log('second', document[0]);
-      }
-   }, [document]);
+   const [loading, setLoading] = React.useState(false);
 
    function submit() {
       if (document[0]) {
-         const formDocument: FormDocument = {
-            affair: 'Algo affair',
-            title: 'algo title',
-            file: document[0],
-         };
+         const formData = new FormData();
+         formData.append('File', document[0]);
+         setLoading(true);
          documentsServices
-            .upload(formDocument)
+            .add(formData)
             .then((response) => {
+               setLoading(false);
                console.log(response);
             })
-            .then((err) => {
+            .catch((err) => {
                console.log(err);
             });
       }
@@ -83,7 +78,9 @@ function Sign() {
                                  type={'button'}
                                  variant='contained'
                                  color={'primary'}
+                                 disabled={loading}
                               >
+                                 {loading && <ButtonLoading />}
                                  Firmar Documento
                               </Button>
                            </div>

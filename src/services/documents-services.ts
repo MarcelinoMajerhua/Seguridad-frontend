@@ -1,17 +1,15 @@
 import request from '../api/api';
-import { FormDocument, IDocument } from '../models/document';
-import axios from 'axios';
+import { IDocument } from '../models/document';
+import axios, { AxiosResponse } from 'axios';
 
 const documentsServices = {
    list: () => request.get<IDocument[]>('/documents'),
-   add: (data: FormDocument) => request.post('/documents', data),
-   upload: (formDocument: FormDocument) => {
-      /*const formData = new FormData();
-      formData.append('File', file);*/
-      return axios.post<IDocument>('/documents', formDocument, {
-         headers: { 'Content-type': 'multipart/form-data' },
-      });
-   },
+   add: (formData: FormData) =>
+      axios
+         .post<IDocument>('/documents', formData, {
+            headers: { 'Content-type': 'multipart/form-data' },
+         })
+         .then((response: AxiosResponse<IDocument>) => response.data),
 };
 
 export default documentsServices;
