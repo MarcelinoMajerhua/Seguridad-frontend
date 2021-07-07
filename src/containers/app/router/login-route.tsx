@@ -9,7 +9,7 @@ function LoginRoute() {
    return (
       <Route path={['/login']}>
          <Switch location={location} key={location.pathname}>
-            <PublicRoute path='/login' component={SignIn} />
+            <Route path='/login' component={SignIn} />
          </Switch>
       </Route>
    );

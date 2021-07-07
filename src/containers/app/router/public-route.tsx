@@ -14,7 +14,7 @@ function PublicRoute({ component: Component, ...rest }: Props) {
          <Route
             {...rest}
             render={(props) =>
-               !isLoggedIn ? <Redirect to={'/'} /> : <Redirect to={'/dashboard'} />
+               !isLoggedIn ? <Redirect to={'/login'} /> : <Redirect to={'/dashboard'} />
             }
          />
       </React.Fragment>
