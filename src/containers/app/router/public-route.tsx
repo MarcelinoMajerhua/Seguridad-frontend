@@ -5,8 +5,7 @@ import { useStore } from '../../../store/store';
 interface Props extends RouteProps {
    component: React.ComponentType<RouteComponentProps<any> | React.ComponentType<any>>;
 }
-
-function PrivateRoute({ component: Component, ...rest }: Props) {
+function PublicRoute({ component: Component, ...rest }: Props) {
    const {
       userStore: { isLoggedIn },
    } = useStore();
@@ -15,10 +14,11 @@ function PrivateRoute({ component: Component, ...rest }: Props) {
          <Route
             {...rest}
             render={(props) =>
-                (isLoggedIn ? <Component {...props} /> : <Redirect to={'/'} />)}
+               !isLoggedIn ? <Redirect to={'/'} /> : <Redirect to={'/dashboard'} />
+            }
          />
       </React.Fragment>
    );
 }
 
-export default PrivateRoute;
+export default PublicRoute;
