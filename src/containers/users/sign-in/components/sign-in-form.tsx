@@ -13,6 +13,7 @@ import { Grid } from '@material-ui/core';
 import { Checkbox } from '@material-ui/core';
 import { Link } from '@material-ui/core';
 
+
 const user: UserFormValues = {
    dni: '73062536',
    password: 'password',
@@ -21,6 +22,7 @@ const user: UserFormValues = {
 function SignInForm() {
     const classes = useStyles();
     return (
+        
         <React.Fragment>
             <form className={classes.form} noValidate>
                 <TextField
@@ -69,10 +71,12 @@ function SignInForm() {
                             {"¿No tienes una cuenta? Regístrate"}
                         </Link>
                     </Grid>
-                </Grid>
 
+                </Grid><br></br><br />
+                             
             </form>
         </React.Fragment>
+     
     );
 }
 

@@ -20,8 +20,7 @@ export default function SignIn() {
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
                     <div>
-                    <ImageAvatars src="../img/log.jpg">
-                    </ImageAvatars>
+                    
                     </div>
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
@@ -30,6 +29,7 @@ export default function SignIn() {
                         Iniciar sesión
                     </Typography>
                     <SignInForm />
+                   
                 </div>
             </Grid>
         </Grid>
