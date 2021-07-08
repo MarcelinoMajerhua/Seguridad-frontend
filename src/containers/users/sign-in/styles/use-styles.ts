@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme :Theme) => ({
         backgroundImage: 'url(https://i.postimg.cc/zDRXp4Zw/logo.png)',
         backgroundSize:'50%',
         backgroundPosition: 'center',
-        
+
     },
     logoP:{
         margin: theme.spacing(10, 15),
@@ -42,9 +42,6 @@ const useStyles = makeStyles((theme :Theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
-    img:{
-        textAlign:"center",
-    }
 }));
 
 export default useStyles;
