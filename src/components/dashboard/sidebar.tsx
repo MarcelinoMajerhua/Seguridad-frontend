@@ -9,6 +9,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import useStyles from './styles/use-styles';
 import { useMediaQuery } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
+import CustomBadgeAvatars from '../custom-badge-avatar/custom-badge-avatar';
 
 interface Props {
    open: boolean;
@@ -42,6 +43,8 @@ function Sidebar({ toggleDrawer, open }: Props) {
                <ChevronLeftIcon />
             </IconButton>
          </div>
+         <Divider />
+         <CustomBadgeAvatars />
          <Divider />
          <List>{mainListItems}</List>
          <Divider />
