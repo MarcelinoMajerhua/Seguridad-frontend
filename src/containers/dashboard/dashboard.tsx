@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CustomBodyName from '../../components/body-custom/custom-body-name';
 import CustomBodyDescription from '../../components/body-custom/custom-body-description';
 import CustomBody from '../../components/body-custom/custom-body';
@@ -9,9 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { IDocument } from '../../models/document';
-import documentsServices from '../../services/documents-services';
-import { useStore } from '../../store/store';
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
    return { name, calories, fat, carbs, protein };
@@ -26,14 +23,13 @@ const rows = [
 ];
 
 function Dashboard() {
-   const { testStore } = useStore();
-   const [documents, setDocuments] = useState<IDocument[]>([]);
+   /*   const [documents, setDocuments] = useState<IDocument[]>([]);
 
    React.useEffect(() => {
       testStore.testMethod().then((response) => {
          console.log(response);
       });
-   }, []);
+   }, []);*/
 
    return (
       <React.Fragment>
