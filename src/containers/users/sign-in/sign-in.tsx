@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from "./styles/use-styles";
 import SignInForm from "./components/sign-in-form";
 
+//import Image from 'material-ui-image'
+
 export default function SignIn() {
     const classes = useStyles();
 
@@ -21,11 +23,15 @@ export default function SignIn() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Inicio de sesión
                     </Typography>
                     <SignInForm />
                 </div>
+                <Typography align="center">
+                        <img src="https://i.postimg.cc/zDRXp4Zw/logo.png" height="300"  width="250"/>
+                </Typography>
             </Grid>
+            
         </Grid>
     );
 }

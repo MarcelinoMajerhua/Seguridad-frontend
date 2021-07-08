@@ -67,7 +67,7 @@ function SignInForm() {
                onClick={submit}
                disabled={userStore.loading}
             >
-               Sign In
+               Iniciar sesión
                {userStore.loading && <ButtonLoading />}
             </Button>
             {/*            <Grid container>

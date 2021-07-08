@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme :Theme) => ({
         height: '100vh',
     },
     image: {
-        backgroundImage: 'url(https://source.unsplash.com/random)',
+        backgroundImage: 'url(https://i.postimg.cc/qgfPZmKj/plantilla-pagina-registro-262129-1168.jpg)',
         backgroundRepeat: 'no-repeat',
         backgroundColor:
             theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme :Theme) => ({
         backgroundPosition: 'center',
     },
     paper: {
-        margin: theme.spacing(8, 4),
+        margin: theme.spacing(10, 15),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
     avatar: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2),
         backgroundColor: theme.palette.secondary.main,
     },
     form: {
@@ -28,8 +28,23 @@ const useStyles = makeStyles((theme :Theme) => ({
         marginTop: theme.spacing(1),
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(4, 0, 2),
     },
+    logo: {
+        backgroundImage: 'url(https://i.postimg.cc/zDRXp4Zw/logo.png)',
+        backgroundSize:'50%',
+        backgroundPosition: 'center',
+        
+    },
+    logoP:{
+        margin: theme.spacing(10, 15),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    img:{
+        textAlign:"center",
+    }
 }));
 
 export default useStyles;
