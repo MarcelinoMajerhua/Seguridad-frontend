@@ -8,9 +8,11 @@ import CustomBody from './custom-body';
 function BodyCustomized() {
     return (
         <React.Fragment>
-            <CustomBodyName>Hola Mundo</CustomBodyName>
+            <CustomBodyName title="titulo" height="300">Hola Mundo</CustomBodyName>
 
-            <CustomBodyDescription>Manda un Hola mundo</CustomBodyDescription>
+            <CustomBodyDescription title="Manda un Hola mundo" height="400">
+                contenido
+            </CustomBodyDescription>
 
             <CustomBody>
                 <CustomMainForm title={'Titulo del Formulario'}>

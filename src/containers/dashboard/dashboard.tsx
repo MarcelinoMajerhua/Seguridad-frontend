@@ -2,7 +2,6 @@ import React from 'react';
 import CustomBodyName from '../../components/body-custom/custom-body-name';
 import CustomBodyDescription from '../../components/body-custom/custom-body-description';
 import CustomBody from '../../components/body-custom/custom-body';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -24,10 +23,22 @@ const rows = [
 ];
 
 function Dashboard() {
+   /*   const [documents, setDocuments] = useState<IDocument[]>([]);
+
+   React.useEffect(() => {
+      testStore.testMethod().then((response) => {
+         console.log(response);
+      });
+   }, []);*/
+
    return (
       <React.Fragment>
-         <CustomBodyName>Subir un documento para firmarlo modificado</CustomBodyName>
-         <CustomBodyDescription>Se encarga</CustomBodyDescription>
+         <CustomBodyName title='titulo' height='300'>
+            Subir un documento para firmarlo
+         </CustomBodyName>
+         <CustomBodyDescription title='Titulo' height='400'>
+            Se encarga
+         </CustomBodyDescription>
          <CustomBody>
             <TableContainer component={Paper}>
                <Table

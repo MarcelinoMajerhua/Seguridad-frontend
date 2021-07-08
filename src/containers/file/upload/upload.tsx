@@ -1,19 +1,19 @@
 import React from 'react';
-import CustomBodyName from '../../components/body-custom/custom-body-name';
-import CustomBodyDescription from '../../components/body-custom/custom-body-description';
-import CustomBody from '../../components/body-custom/custom-body';
-import CustomMainForm from '../../components/form/custom-main-form';
+import CustomBodyName from '../../../components/body-custom/custom-body-name';
+import CustomBodyDescription from '../../../components/body-custom/custom-body-description';
+import CustomBody from '../../../components/body-custom/custom-body';
+import CustomMainForm from '../../../components/form/custom-main-form';
 import Grid from '@material-ui/core/Grid';
-import CustomTextField from '../../components/custom-text-field/custom-text-field';
+import CustomTextField from '../../../components/custom-text-field/custom-text-field';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Button } from '@material-ui/core';
 
-function FileUpload() {
+function Upload() {
    return (
       <React.Fragment>
-         <CustomBodyName>Subir un documento para firmarlo editado</CustomBodyName>
-         <CustomBodyDescription>Se encarga</CustomBodyDescription>
+         <CustomBodyName title="titulo" height="300">Subir un documento para firmarlo editado</CustomBodyName>
+         <CustomBodyDescription title = "titulo" height="400">Se encarga</CustomBodyDescription>
          <CustomBody>
             <CustomMainForm title={'Subir Documento'}>
                <React.Fragment>
@@ -61,4 +61,4 @@ function FileUpload() {
    );
 }
 
-export default FileUpload;
+export default Upload;
