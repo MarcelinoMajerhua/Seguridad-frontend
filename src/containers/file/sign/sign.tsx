@@ -11,21 +11,39 @@ import DocumentWidgetDropzone from './components/document-widget-dropzone';
 import DocumentPreview from './components/document-preview';
 import documentsServices from '../../../services/documents-services';
 import ButtonLoading from '../../../components/custom-loading/button-loading';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Alert from '@material-ui/lab/Alert';
+import CustomModal from '../../../components/custom-modal/custom-modal';
+import { IDocument } from '../../../models/document';
 
 function Sign() {
    const [document, setDocument] = React.useState<any>([]);
    const [loading, setLoading] = React.useState(false);
+   const [signedDocument, setSignedDocument] = React.useState<IDocument | null>(null);
 
+   const [open, setOpen] = React.useState(false);
+
+   const handleClickOpen = () => {
+      setOpen(true);
+   };
+
+   function deleteDocument() {
+      setDocument([]);
+   }
    function submit() {
       if (document[0]) {
+         const fileUpload = document[0];
          const formData = new FormData();
-         formData.append('File', document[0]);
+         formData.append('File', fileUpload);
          setLoading(true);
          documentsServices
             .add(formData)
             .then((response) => {
                setLoading(false);
-               console.log(response);
+               setOpen(true);
+               const document: IDocument = response;
+               document.documentName = fileUpload.name;
+               setSignedDocument(document);
             })
             .catch((err) => {
                console.log(err);
@@ -34,6 +52,7 @@ function Sign() {
    }
    return (
       <React.Fragment>
+         <CustomModal open={open} setOpen={setOpen} document={signedDocument} />
          <CustomBodyName title={'Componente'} height='150px'>
             Firmar Documento
          </CustomBodyName>
@@ -59,16 +78,40 @@ function Sign() {
                            <CustomTextField label={'Titulo'} name={'title'} />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
-                           <div style={{ paddingTop: '5px' }}>
-                              <DocumentWidgetDropzone setDocument={setDocument} />
-                           </div>
+                           {document && document.length > 0 ? (
+                              <>
+                                 <div style={{ paddingTop: '80px' }}>
+                                    <Alert severity='success'>
+                                       El Documento se cargo, correctamente
+                                    </Alert>
+                                 </div>
+                              </>
+                           ) : (
+                              <div style={{ paddingTop: '5px' }}>
+                                 <DocumentWidgetDropzone setDocument={setDocument} />
+                              </div>
+                           )}
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
-                           <Paper style={{ height: '210px' }} elevation={3}>
-                              {document && document.length > 0 && (
-                                 <DocumentPreview document={document} />
-                              )}
-                           </Paper>
+                           {document && document.length > 0 && (
+                              <>
+                                 <Paper style={{ height: '210px' }} elevation={3}>
+                                    {document && document.length > 0 && (
+                                       <DocumentPreview document={document} />
+                                    )}
+                                 </Paper>
+                                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                    <Button
+                                       variant='contained'
+                                       color='secondary'
+                                       startIcon={<DeleteIcon />}
+                                       onClick={deleteDocument}
+                                    >
+                                       Eliminar
+                                    </Button>
+                                 </div>
+                              </>
+                           )}
                         </Grid>
 
                         <Grid item xs={12} sm={12} md={12}>
@@ -78,7 +121,7 @@ function Sign() {
                                  type={'button'}
                                  variant='contained'
                                  color={'primary'}
-                                 disabled={loading}
+                                 disabled={loading || (document && document.length === 0)}
                               >
                                  {loading && <ButtonLoading />}
                                  Firmar Documento
