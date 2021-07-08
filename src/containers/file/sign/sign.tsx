@@ -9,9 +9,29 @@ import { Button, Grid, Paper } from '@material-ui/core';
 import CustomTextField from '../../../components/custom-text-field/custom-text-field';
 import DocumentWidgetDropzone from './components/document-widget-dropzone';
 import DocumentPreview from './components/document-preview';
+import documentsServices from '../../../services/documents-services';
+import ButtonLoading from '../../../components/custom-loading/button-loading';
 
 function Sign() {
    const [document, setDocument] = React.useState<any>([]);
+   const [loading, setLoading] = React.useState(false);
+
+   function submit() {
+      if (document[0]) {
+         const formData = new FormData();
+         formData.append('File', document[0]);
+         setLoading(true);
+         documentsServices
+            .add(formData)
+            .then((response) => {
+               setLoading(false);
+               console.log(response);
+            })
+            .catch((err) => {
+               console.log(err);
+            });
+      }
+   }
    return (
       <React.Fragment>
          <CustomBodyName title={'Componente'} height='150px'>
@@ -53,7 +73,14 @@ function Sign() {
 
                         <Grid item xs={12} sm={12} md={12}>
                            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                              <Button type={'button'} variant='contained' color={'primary'}>
+                              <Button
+                                 onClick={submit}
+                                 type={'button'}
+                                 variant='contained'
+                                 color={'primary'}
+                                 disabled={loading}
+                              >
+                                 {loading && <ButtonLoading />}
                                  Firmar Documento
                               </Button>
                            </div>

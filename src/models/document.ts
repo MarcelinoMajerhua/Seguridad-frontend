@@ -13,5 +13,5 @@ export interface IDocument {
 export interface FormDocument {
     affair : string,
     title : string,
-    file : File
+    file : any
 }

@@ -17,13 +17,6 @@ function DocumentWidgetDropzone({ setDocument }: Props) {
    const dzActive = { borderColor: 'green' };
    const onDrop = useCallback(
       (acceptedFiles) => {
-         console.log(
-            acceptedFiles.map((file: any) =>
-               Object.assign(file, {
-                  preview: URL.createObjectURL(file),
-               })
-            )
-         );
          setDocument(
             acceptedFiles.map((file: any) =>
                Object.assign(file, {

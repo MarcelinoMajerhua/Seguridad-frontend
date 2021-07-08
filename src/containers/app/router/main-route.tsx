@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import MainLayout from '../../../components/dashboard/main-layout';
+import PrivateRoute from './private-route';
 
 const Dashboard = lazy(() => import('../../dashboard/dashboard'));
 const Profile = lazy(() => import('../../profile/profile'));
@@ -16,11 +17,11 @@ function MainRoute() {
       >
          <MainLayout>
             <Switch location={location} key={location.pathname}>
-               <Route path='/dashboard' component={Dashboard} />
-               <Route path='/profile' component={Profile} />
-               <Route path='/register' component={Register} />
-               <Route path='/file/check' component={Check} />
-               <Route path='/file/sign' component={Sign} />
+               <PrivateRoute path='/dashboard' component={Dashboard} />
+               <PrivateRoute path='/profile' component={Profile} />
+               <PrivateRoute path='/register' component={Register} />
+               <PrivateRoute path='/file/check' component={Check} />
+               <PrivateRoute path='/file/sign' component={Sign} />
             </Switch>
          </MainLayout>
       </Route>
