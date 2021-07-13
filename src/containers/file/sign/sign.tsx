@@ -23,13 +23,14 @@ function Sign() {
 
    const [open, setOpen] = React.useState(false);
 
-   const handleClickOpen = () => {
-      setOpen(true);
-   };
-
    function deleteDocument() {
       setDocument([]);
    }
+
+   const resetForm = () => {
+      deleteDocument();
+   };
+
    function submit() {
       if (document[0]) {
          const fileUpload = document[0];
@@ -44,6 +45,7 @@ function Sign() {
                const document: IDocument = response;
                document.documentName = fileUpload.name;
                setSignedDocument(document);
+               resetForm();
             })
             .catch((err) => {
                console.log(err);
