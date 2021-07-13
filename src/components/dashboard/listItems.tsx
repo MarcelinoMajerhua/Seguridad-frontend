@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import AssignmentIcon from '@material-ui/icons/Assignment';
 import { NavLink } from 'react-router-dom';
+import Divider from '@material-ui/core/Divider';
 
 export const mainListItems = (
    <div>
@@ -27,6 +27,7 @@ export const secondaryListItems = (
          </ListItemIcon>
          <ListItemText primary='Registro' />
       </ListItem>
+      <Divider />
       <ListSubheader inset>Documentos</ListSubheader>
       <ListItem component={NavLink} to={'/file/sign'} activeClassName='Mui-selected' button>
          <ListItemIcon>
@@ -41,6 +42,7 @@ export const secondaryListItems = (
          </ListItemIcon>
          <ListItemText primary='Verificar Documento' />
       </ListItem>
+      <Divider />
       <ListSubheader inset>Perfiles</ListSubheader>
       <ListItem component={NavLink} to={'/profile'} activeClassName='Mui-selected' button>
          <ListItemIcon>

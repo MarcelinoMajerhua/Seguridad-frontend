@@ -9,7 +9,8 @@ import { mainListItems, secondaryListItems } from './listItems';
 import useStyles from './styles/use-styles';
 import { useMediaQuery } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
-
+import CustomBadgeAvatars from '../custom-badge-avatar/custom-badge-avatar';
+/*import mainLogo from '../../assets/images/logo/logo-unsch.png';*/
 interface Props {
    open: boolean;
    toggleDrawer: () => void;
@@ -38,10 +39,14 @@ function Sidebar({ toggleDrawer, open }: Props) {
          open={open}
       >
          <div className={classes.toolbarIcon}>
+            <h2 style={{marginRight : '40px'}} >UNSCH</h2>
+            {/*<img src={mainLogo} alt={'logo UNSCH'} style={{width : '200px', height:'100px'}} />*/}
             <IconButton onClick={toggleDrawer}>
                <ChevronLeftIcon />
             </IconButton>
          </div>
+         <Divider />
+         <CustomBadgeAvatars />
          <Divider />
          <List>{mainListItems}</List>
          <Divider />

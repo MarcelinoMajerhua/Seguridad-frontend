@@ -1,9 +1,15 @@
-import request from "../api/api";
-import {FormDocument, IDocument} from "../models/document";
+import request from '../api/api';
+import { IDocument } from '../models/document';
+import axios, { AxiosResponse } from 'axios';
 
 const documentsServices = {
-    list : () => request.get<IDocument[]>("/documents/listar"),
-    add : (data : FormDocument) => request.post("/documents/crear",data),
+   list: () => request.get<IDocument[]>('/documents'),
+   add: (formData: FormData) =>
+      axios
+         .post<IDocument>('/documents', formData, {
+            headers: { 'Content-type': 'multipart/form-data' },
+         })
+         .then((response: AxiosResponse<IDocument>) => response.data),
 };
 
 export default documentsServices;
