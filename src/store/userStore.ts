@@ -50,22 +50,6 @@ export default class UserStore {
       } catch (e) {}
    };
 
-   /*    register = async (creds: UserFormValues) => {
-        try {
-            const user = await accountsServices.register(creds);
-            store.commonStore.setToken(user.token);
-            runInAction(() => (this.user = user));
-            history.push('/activities');
-            /!*store.modalStore.closeModal();*!/
-        } catch (e) {
-            throw e;
-        }
-    };*/
-   /*
-    setImage = (image: string) => {
-        if (this.user) this.user.image = image;
-    };*/
-
     register = async (creds: UserFormValuesRegister)=>{
        try{
           const user = await accountsServices.register(creds);

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -9,7 +8,9 @@ import Collapse from '@material-ui/core/Collapse';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+import { useStore } from '../../../../store/store';
+import { Role} from '../../../../models/role';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -27,9 +28,30 @@ const useStyles = makeStyles((theme: Theme) =>
 function ListRegister() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [roles, setRoles] = React.useState<Role[]>();
+    const { roleStore } = useStore();
+    const [state, setState] = React.useState<string[]>([]); //contiene los permisos activaods
+
+    useEffect(() => {
+        
+        roleStore.getRoles().then(result => {
+            setRoles(result)
+        })
+
+
+    }, [])
 
     const handleClick = () => {
         setOpen(!open);
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+        if(state.includes(event.target.value)){
+            setState(state.filter(item => item!==event.target.value))
+        }else{
+            setState([ ...state, event.target.value]);
+        }
     };
 
     return (
@@ -46,13 +68,26 @@ function ListRegister() {
                     <ListItemText primary="Roles" />
                     {open ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
+
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem button className={classes.nested}>
-                            <ListItemText primary="Admin" />
-                        </ListItem>
+                        {roles?.map((role,index) => {
+                            return<FormControlLabel
+                                control={
+                                    <Checkbox key={index}
+                                        checked={state.includes(role.id)?true:false}
+                                        onChange={handleChange}
+                                        value= {role.id}
+                                        color="primary"
+                                    />
+                                }
+                                label={role.name}
+                            />
+                        })}
+
                     </List>
                 </Collapse>
+
             </List>
         </>
     )

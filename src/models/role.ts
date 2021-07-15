@@ -15,3 +15,13 @@ export class roleForm {
         }
     }
 }
+
+export class RolesForm {
+    id:string =''
+
+    constructor(role?:RolesForm){
+        if(role){
+            this.id= role.id
+        }
+    }
+}

@@ -108,17 +108,22 @@ function RegisterForm() {
                   type='password' />
             </Grid>
             <Grid item xs={6} md={6}>
-               <ListRegister/>
+
+               <ListRegister />
+               
+            </Grid>
+            <Grid item xs={6} md={6}>
+               <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
+                  <Button type={'button'}
+                     variant='contained'
+                     onClick={submit}
+                     color={'primary'}>
+                     Agregar
+                  </Button>
+               </div>
             </Grid>
          </Grid>
-         <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
-            <Button type={'button'}
-               variant='contained'
-               onClick={submit}
-               color={'primary'}>
-               Agregar
-            </Button>
-         </div>
+
       </React.Fragment>
    );
 }
