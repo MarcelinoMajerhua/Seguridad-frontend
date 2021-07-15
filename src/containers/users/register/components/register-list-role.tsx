@@ -25,7 +25,12 @@ const useStyles = makeStyles((theme: Theme) =>
    })
 );
 
-function ListRegister() {
+interface Props {
+   setRolesT: (roles: Role[]) => void;
+   rolesT: Role[];
+}
+
+function ListRegister({ setRolesT, rolesT }: Props) {
    const classes = useStyles();
    const [open, setOpen] = React.useState(false);
    const [roles, setRoles] = React.useState<Role[]>();
@@ -37,6 +42,20 @@ function ListRegister() {
          setRoles(result);
       });
    }, []);
+
+   useEffect(() => {
+      if (roles) {
+         const tempRoles: Role[] = [];
+         for (const tempState of state) {
+            for (const rol of roles) {
+               if (rol.id === tempState) {
+                  tempRoles.push(rol);
+               }
+            }
+         }
+         setRolesT(tempRoles);
+      }
+   }, [state]);
 
    const handleClick = () => {
       setOpen(!open);
@@ -63,22 +82,20 @@ function ListRegister() {
 
             <Collapse in={open} timeout='auto' unmountOnExit>
                <List component='div' disablePadding>
-                  {roles?.map((role, index) => {
-                     return (
-                        <FormControlLabel
-                           control={
-                              <Checkbox
-                                 key={index}
-                                 checked={state.includes(role.id)}
-                                 onChange={handleChange}
-                                 value={role.id}
-                                 color='primary'
-                              />
-                           }
-                           label={role.name}
-                        />
-                     );
-                  })}
+                  {roles?.map((role) => (
+                     <FormControlLabel
+                        key={role.id}
+                        control={
+                           <Checkbox
+                              checked={state.includes(role.id)}
+                              onChange={handleChange}
+                              value={role.id}
+                              color='primary'
+                           />
+                        }
+                        label={role.name}
+                     />
+                  ))}
                </List>
             </Collapse>
          </List>

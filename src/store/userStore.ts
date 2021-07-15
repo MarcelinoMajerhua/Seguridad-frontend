@@ -46,7 +46,6 @@ export default class UserStore {
    getUser = async () => {
       try {
          const user = await accountsServices.current();
-         console.log(user);
          runInAction(() => (this.user = user));
       } catch (e) {}
    };
