@@ -13,11 +13,13 @@ const user: UserFormValues = {
    password: 'password',
 };
 
+
 function SignInForm() {
    const classes = useStyles();
    const { userStore } = useStore();
    const [userForm, setUserForm] = useState<UserFormValues>(new UserFormValues(user));
    const [errors, setErrors] = useState('');
+
 
    function changeValueUser(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) {
       const { value, name } = event.target;
