@@ -7,6 +7,11 @@ export interface User {
    fullName: string;
    position: string;
    dni: string;
+   roles: Role[];
+}
+
+interface Role {
+   name: string;
 }
 
 export class UserFormValues {

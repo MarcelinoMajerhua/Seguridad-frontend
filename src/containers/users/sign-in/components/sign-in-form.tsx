@@ -9,7 +9,7 @@ import ButtonLoading from '../../../../components/custom-loading/button-loading'
 import { observer } from 'mobx-react-lite';
 
 const user: UserFormValues = {
-   dni: '73062536',
+   dni: '12345678',
    password: 'password',
 };
 

@@ -18,7 +18,7 @@ export const mainListItems = (
    </div>
 );
 
-export const secondaryListItems = (
+export const adminListItems = (
    <div>
       <ListSubheader inset>Admin</ListSubheader>
       <ListItem component={NavLink} to={'/register'} activeClassName='Mui-selected' button>
@@ -27,7 +27,11 @@ export const secondaryListItems = (
          </ListItemIcon>
          <ListItemText primary='Registro' />
       </ListItem>
-      <Divider />
+   </div>
+);
+
+export const secondaryListItems = (
+   <div>
       <ListSubheader inset>Documentos</ListSubheader>
       <ListItem component={NavLink} to={'/file/sign'} activeClassName='Mui-selected' button>
          <ListItemIcon>
