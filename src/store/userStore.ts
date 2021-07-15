@@ -1,4 +1,4 @@
-import { User, UserFormValues } from '../models/user';
+import { User, UserFormValues, UserFormValuesRegister } from '../models/user';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { store } from './store';
 import { history } from '../index';
@@ -50,19 +50,12 @@ export default class UserStore {
       } catch (e) {}
    };
 
-   /*    register = async (creds: UserFormValues) => {
-        try {
-            const user = await accountsServices.register(creds);
-            store.commonStore.setToken(user.token);
-            runInAction(() => (this.user = user));
-            history.push('/activities');
-            /!*store.modalStore.closeModal();*!/
-        } catch (e) {
-            throw e;
-        }
-    };*/
-   /*
-    setImage = (image: string) => {
-        if (this.user) this.user.image = image;
-    };*/
+    register = async (creds: UserFormValuesRegister)=>{
+       try{
+          const user = await accountsServices.register(creds);
+          runInAction(()=>(this.user=user))
+       }catch(e){
+          throw e;
+       }
+    }
 }
