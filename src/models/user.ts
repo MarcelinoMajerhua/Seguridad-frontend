@@ -1,3 +1,5 @@
+import {Role} from "./role";
+
 export interface User {
    id: string;
    email: string;
@@ -8,10 +10,6 @@ export interface User {
    position: string;
    dni: string;
    roles: Role[];
-}
-
-interface Role {
-   name: string;
 }
 
 export class UserFormValues {
