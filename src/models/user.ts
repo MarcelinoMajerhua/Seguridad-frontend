@@ -32,7 +32,7 @@ export class UserFormValuesRegister {
    position:string='';
    lastName:string='';
    fullName:string='';
-   roles: string[]=[];
+   roles: Role[]=[];
 
    constructor(user?: UserFormValuesRegister){
       if(user){

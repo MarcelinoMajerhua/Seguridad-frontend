@@ -4,6 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 
 const documentsServices = {
    list: () => request.get<IDocument[]>('/documents'),
+   check: (formData: FormData) => request.post<IDocument>('/documents/check',formData),
    add: (formData: FormData) =>
       axios
          .post<IDocument>('/documents', formData, {
