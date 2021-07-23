@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import CustomTextField from '../../../../components/custom-text-field/custom-text-field';
 import { Button } from '@material-ui/core';
@@ -13,8 +13,6 @@ function RegisterForm() {
 
    const [userForm, setUserForm] = useState<UserFormValuesRegister>(new UserFormValuesRegister());
 
-   const [errors, setErrors] = useState('');
-
    const [roles, setRoles] = useState<Role[]>([]);
 
    const changeValueUser = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -23,18 +21,19 @@ function RegisterForm() {
       setUserForm({ ...userForm, [name]: value });
    };
 
+   useEffect(() => {
+      setUserForm({...userForm, roles:roles})
+   }, [roles])
+
    const submit = () => {
-      console.log(roles);
-      /*userStore.register(userForm).catch(() => {
-         setErrors('El usuario no ha sido registrado');
-      });*/
+      
+      userStore.register(userForm).catch((e)=>{
+         
+      })
    };
 
    return (
       <React.Fragment>
-         {/*
-         {errors !== '' && <Alert severity='error'> {errors} </Alert>}
-*/}
          <form
             style={{
                marginTop: '25px',
@@ -121,7 +120,11 @@ function RegisterForm() {
                   />
                </Grid>
                <Grid item xs={12} md={12}>
-                  <ListRegister rolesT={roles} setRolesT={setRoles} />
+                  <ListRegister
+
+                     rolesT={roles}
+                     setRolesT={setRoles}
+                  />
                </Grid>
                <Grid item xs={12} md={12}>
                   <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-end' }}>

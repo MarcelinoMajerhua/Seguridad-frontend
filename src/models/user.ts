@@ -32,7 +32,7 @@ export class UserFormValuesRegister {
    position:string='';
    lastName:string='';
    fullName:string='';
-   roles: string[]=[];
+   roles: Role[]=[];
 
    constructor(user?: UserFormValuesRegister){
       if(user){
@@ -48,4 +48,16 @@ export class UserFormValuesRegister {
 
       }
    }
+
+
+}
+export interface IUserCheck {
+   documentName : string;
+   fullName : string,
+   url: string;
+   dni: string;
+   email: string;
+   username: string;
+   lastName: string;
+   position: string;
 }
