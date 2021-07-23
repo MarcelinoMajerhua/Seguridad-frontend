@@ -13,14 +13,13 @@ import DocumentWidgetDropzone from './components/document-widget-dropzone';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ButtonLoading from '../../../components/custom-loading/button-loading';
 import documentsServices from '../../../services/documents-services';
-
-import { IDocument } from '../../../models/document';
-import CustomModal from '../../../components/custom-modal/custom-modal';
+import { IUserCheck } from '../../../models/user';
+import CustomModal from './custom-modal-check/custom-modal';
 
 function Check() {
     const [document, setDocument] = React.useState<any>([]);
     const [loading, setLoading] = React.useState(false);
-    const [signedDocument, setSignedDocument] = React.useState<IDocument | null>(null);
+    const [signedDocument, setSignedDocument] = React.useState<IUserCheck | null>(null);
     const [open, setOpen] = React.useState(false);
 
     function deleteDocument() {
@@ -44,7 +43,7 @@ function Check() {
                 .then((response) => {
                     setLoading(false);
                     setOpen(true);
-                    const document: IDocument = response;
+                    const document: IUserCheck = response;
                     document.documentName = fileUpload.name;
                     setSignedDocument(document);
                 }).catch((err) => {
@@ -54,7 +53,7 @@ function Check() {
     }
     return (
         <React.Fragment>
-            <CustomModal open={open} setOpen={setOpen} document={signedDocument} />
+            <CustomModal open={open} setOpen={setOpen} user={signedDocument} />
 
             <CustomBodyName title={"Componente"} height="150px">
                 Verificar Documento
@@ -68,6 +67,7 @@ function Check() {
                     <CustomCardHeader>
                         <h3> Por favor agregue su documento </h3>
                     </CustomCardHeader>
+
                     <CustomCardBody>
                         <form
                             style={{
@@ -90,6 +90,7 @@ function Check() {
                                         </div>
                                     )}
                                 </Grid>
+
                                 <Grid item xs={12} sm={12} md={6}>
                                     {document && document.length > 0 && (
                                         <>
@@ -116,7 +117,7 @@ function Check() {
                                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                                         <Button
                                             onClick={submit}
-                                            type={'button'}
+                                            type={'button'} 
                                             variant='contained'
                                             color={'primary'}
                                             disabled={loading || (document && document.length === 0)}
@@ -126,6 +127,7 @@ function Check() {
                                         </Button>
                                     </div>
                                 </Grid>
+                                
                             </Grid>
                         </form>
                     </CustomCardBody>

@@ -48,4 +48,16 @@ export class UserFormValuesRegister {
 
       }
    }
+
+
+}
+export interface IUserCheck {
+   documentName : string;
+   fullName : string,
+   url: string;
+   dni: string;
+   email: string;
+   username: string;
+   lastName: string;
+   position: string;
 }
