@@ -11,8 +11,13 @@ export interface IDocument {
    documentName?: any;
 }
 
-export interface FormDocument {
-   affair: string;
-   title: string;
-   file: any;
+export class DocumentForm {
+   affair: string = '';
+   title: string = '';
+   constructor(document?: IDocument) {
+      if (document) {
+         this.affair = document.affair;
+         this.title = document.title;
+      }
+   }
 }

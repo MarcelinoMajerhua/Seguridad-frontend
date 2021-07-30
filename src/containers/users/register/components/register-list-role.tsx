@@ -31,7 +31,7 @@ interface Props {
    changRole: boolean;
 }
 
-function ListRegister({ setRolesT, rolesT, changRole }: Props) {
+function ListRegister({ setRolesT, changRole }: Props) {
    const classes = useStyles();
    const [open, setOpen] = React.useState(false);
    const [roles, setRoles] = React.useState<Role[]>();
@@ -42,7 +42,7 @@ function ListRegister({ setRolesT, rolesT, changRole }: Props) {
       roleStore.getRoles().then((result) => {
          setRoles(result);
       });
-   }, []);
+   }, [roleStore]);
 
    useEffect(() => {
       setState([]);
@@ -60,7 +60,7 @@ function ListRegister({ setRolesT, rolesT, changRole }: Props) {
          }
          setRolesT(tempRoles);
       }
-   }, [state]);
+   }, [roles, setRolesT, state]);
 
    const handleClick = () => {
       setOpen(!open);

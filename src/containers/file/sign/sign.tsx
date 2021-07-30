@@ -14,20 +14,27 @@ import ButtonLoading from '../../../components/custom-loading/button-loading';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Alert from '@material-ui/lab/Alert';
 import CustomModal from '../../../components/custom-modal/custom-modal';
-import { IDocument } from '../../../models/document';
+import { DocumentForm, IDocument } from '../../../models/document';
 
 function Sign() {
    const [document, setDocument] = React.useState<any>([]);
    const [loading, setLoading] = React.useState(false);
    const [signedDocument, setSignedDocument] = React.useState<IDocument | null>(null);
+   const [state, setState] = React.useState<DocumentForm>(new DocumentForm());
 
    const [open, setOpen] = React.useState(false);
+
+   const changeValueUser = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      const { value, name } = event.target;
+      setState({ ...state, [name]: value });
+   };
 
    function deleteDocument() {
       setDocument([]);
    }
 
    const resetForm = () => {
+      setState(new DocumentForm());
       deleteDocument();
    };
 
@@ -74,10 +81,20 @@ function Sign() {
                   >
                      <Grid container spacing={4}>
                         <Grid item xs={12} sm={12} md={6}>
-                           <CustomTextField label={'Asunto'} name={'affair'} />
+                           <CustomTextField
+                              value={state.affair}
+                              onChange={(event) => changeValueUser(event)}
+                              label={'Asunto'}
+                              name={'affair'}
+                           />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
-                           <CustomTextField label={'Titulo'} name={'title'} />
+                           <CustomTextField
+                              value={state.title}
+                              onChange={(event) => changeValueUser(event)}
+                              label={'Titulo'}
+                              name={'title'}
+                           />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
                            {document && document.length > 0 ? (

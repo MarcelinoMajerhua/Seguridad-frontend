@@ -19,13 +19,12 @@ function RegisterForm() {
 
    const changeValueUser = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
       const { value, name } = event.target;
-
       setUserForm({ ...userForm, [name]: value });
    };
 
    useEffect(() => {
       setUserForm({ ...userForm, roles: roles });
-   }, [setUserForm, roles]);
+   }, [setUserForm, roles, userForm]);
 
    const submit = () => {
       setLoading(true);

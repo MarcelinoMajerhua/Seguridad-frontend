@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ac1dee9-3637-4d3d-91a5-f7bb61d33ab9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Seguridad-frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/logo/logo-unsch-integrantes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/dashboard/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/dashboard/dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/app/router/login-route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/app/router/login-route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/file/check/check.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/file/check/check.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/file/check/custom-modal-check/custom-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/file/check/custom-modal-check/custom-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/file/sign/sign.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/file/sign/sign.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/users/register/components/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/users/register/components/register-form.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/users/register/components/register-list-role.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/users/register/components/register-list-role.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/users/sign-in/components/sign-in-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/users/sign-in/components/sign-in-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/users/sign-in/sign-in.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/users/sign-in/sign-in.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/users/sign-in/styles/use-styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/users/sign-in/styles/use-styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/document.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/document.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/userStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/userStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +19,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1w17gvwfa3gDQI3z5AkXvIgzpSI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -63,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1627614361960</updated>
-      <workItem from="1627614366979" duration="4897000" />
+      <workItem from="1627614366979" duration="6409000" />
     </task>
     <servers />
   </component>

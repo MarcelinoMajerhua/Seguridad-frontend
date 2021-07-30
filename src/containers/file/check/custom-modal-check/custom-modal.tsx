@@ -26,11 +26,7 @@ export default function CustomModal({ open, setOpen, user }: Props) {
    const handleClose = () => {
       setOpen(false);
    };
-   const raiseInvoiceClicked = () => {
-      handleClose();
-      // route to new page by changing window.location
-      window.open(user?.url, '_blank'); //to open new page
-   };
+
    return (
       <div>
          <Dialog
@@ -41,64 +37,55 @@ export default function CustomModal({ open, setOpen, user }: Props) {
             aria-labelledby='alert-dialog-slide-title'
             aria-describedby='alert-dialog-slide-description'
          >
-            {user?.dni ? (<>
+            {user?.dni ? (
+               <>
+                  <DialogTitle id='alert-dialog-slide-title'>
+                     El documento fue firmado por:
+                  </DialogTitle>
 
-               <DialogTitle id='alert-dialog-slide-title'>
-                  El documento fue firmado por:
-               </DialogTitle>
+                  <DialogContent>
+                     <DialogContentText id='alert-dialog-slide-description'>
+                        Nombre documento : <strong> {user?.documentName} </strong>
+                        <br />
+                        Nombre: <strong> {user?.fullName} </strong>
+                        <br />
+                        Dni: <strong> {user?.dni} </strong>
+                        <br />
+                        Email: <strong> {user?.email} </strong>
+                        <br />
+                        Cargo: <strong> {user?.position} </strong>
+                     </DialogContentText>
+                  </DialogContent>
 
-               <DialogContent>
-                  <DialogContentText id='alert-dialog-slide-description'>
-                     Nombre documento : <strong> {user?.documentName} </strong>
-                     <br />
-                     Nombre: <strong> {user?.fullName} </strong>
-                     <br />
-                     Dni: <strong> {user?.dni} </strong>
-                     <br />
-                     Email: <strong> {user?.email} </strong>
-                     <br />
-                     Cargo: <strong> {user?.position} </strong>
-                  </DialogContentText>
-               </DialogContent>
+                  <DialogActions>
+                     <Button
+                        onClick={handleClose}
+                        type={'button'}
+                        variant='contained'
+                        color={'primary'}
+                     >
+                        Aceptar
+                     </Button>
+                  </DialogActions>
+               </>
+            ) : (
+               <>
+                  <DialogTitle id='alert-dialog-slide-title'>
+                     El documento ha sido alterado o no fue firmado con este plataforma.
+                  </DialogTitle>
 
-               <DialogActions>
-               <Button
-                  onClick={raiseInvoiceClicked}
-                  type={'button'}
-                  variant='contained'
-                  color={'primary'}
-               >
-                  Si
-               </Button>
-               <Button
-                  onClick={handleClose}
-                  type={'button'}
-                  variant='contained'
-                  color={'inherit'}
-               >
-                  No
-               </Button>
-            </DialogActions>
-
-            </>) : (<>
-               <DialogTitle id='alert-dialog-slide-title'>
-                  El documento ha sido alterado o no fue firmado con este plataforma.
-               </DialogTitle>
-
-               
-               <DialogActions>
-               <Button
-                  onClick={handleClose}
-                  type={'button'}
-                  variant='contained'
-                  color={'inherit'}
-               >
-                  Salir
-               </Button>
-            </DialogActions>
-
-            </>)}
-
+                  <DialogActions>
+                     <Button
+                        onClick={handleClose}
+                        type={'button'}
+                        variant='contained'
+                        color={'inherit'}
+                     >
+                        Salir
+                     </Button>
+                  </DialogActions>
+               </>
+            )}
          </Dialog>
       </div>
    );

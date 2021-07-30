@@ -1,4 +1,4 @@
-import { User, UserFormValues, UserFormValuesRegister } from '../models/user';
+import { User, UserFormValues } from '../models/user';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { store } from './store';
 import { history } from '../index';
@@ -50,7 +50,7 @@ export default class UserStore {
       } catch (e) {}
    };
 
-/*    register = async (creds: UserFormValuesRegister)=>{
+   /*    register = async (creds: UserFormValuesRegister)=>{
        try{
           const user = await accountsServices.register(creds);
           runInAction(()=>(this.user = user))
