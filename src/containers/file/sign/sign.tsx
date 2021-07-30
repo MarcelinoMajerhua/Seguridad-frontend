@@ -38,13 +38,36 @@ function Sign() {
       deleteDocument();
    };
 
-   function submit() {
+   async function submit() {
       if (document[0]) {
          const fileUpload = document[0];
          const formData = new FormData();
          formData.append('File', fileUpload);
          setLoading(true);
-         documentsServices
+
+         try {
+            const responseResult = await documentsServices.add(formData);
+
+            console.log(responseResult);
+
+            const tempDocument: DocumentForm = {
+               affair: state.affair,
+               title: state.title,
+            };
+
+            await documentsServices.edit(tempDocument, responseResult.detailDocumentId);
+
+            setLoading(false);
+            setOpen(true);
+            const document: IDocument = responseResult;
+            document.documentName = fileUpload.name;
+            setSignedDocument(document);
+            resetForm();
+         } catch (e) {
+            console.log(e);
+         }
+
+         /*         documentsServices
             .add(formData)
             .then((response) => {
                setLoading(false);
@@ -56,7 +79,7 @@ function Sign() {
             })
             .catch((err) => {
                console.log(err);
-            });
+            });*/
       }
    }
    return (

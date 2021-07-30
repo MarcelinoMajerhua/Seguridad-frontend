@@ -2,6 +2,7 @@ import { User } from './user';
 
 export interface IDocument {
    id: string;
+   detailDocumentId : string,
    url: string;
    user: string;
    affair: string;
