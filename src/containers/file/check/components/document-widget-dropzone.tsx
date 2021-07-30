@@ -27,7 +27,10 @@ function DocumentWidgetDropzone({ setDocument }: Props) {
       },
       [setDocument]
    );
-   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+   const { getRootProps, getInputProps, isDragActive } = useDropzone({
+      onDrop,
+      accept: 'application/pdf',
+   });
 
    return (
       <React.Fragment>
@@ -35,7 +38,7 @@ function DocumentWidgetDropzone({ setDocument }: Props) {
             {...getRootProps()}
             style={isDragActive ? { ...dzStyles, ...dzActive } : { ...dzStyles }}
          >
-            <input {...getInputProps()} />
+            <input accept='application/pdf' {...getInputProps()} />
             <span style={{ fontSize: 100 }} className='material-icons'>
                file_download
             </span>

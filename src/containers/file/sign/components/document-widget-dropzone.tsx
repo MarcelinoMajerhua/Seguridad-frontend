@@ -27,7 +27,10 @@ function DocumentWidgetDropzone({ setDocument }: Props) {
       },
       [setDocument]
    );
-   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+   const { getRootProps, getInputProps, isDragActive } = useDropzone({
+      onDrop,
+      accept: 'application/pdf',
+   });
 
    return (
       <React.Fragment>
