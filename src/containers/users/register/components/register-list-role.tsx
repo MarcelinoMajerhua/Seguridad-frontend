@@ -28,9 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
 interface Props {
    setRolesT: (roles: Role[]) => void;
    rolesT: Role[];
+   changRole: boolean;
 }
 
-function ListRegister({ setRolesT, rolesT }: Props) {
+function ListRegister({ setRolesT, rolesT, changRole }: Props) {
    const classes = useStyles();
    const [open, setOpen] = React.useState(false);
    const [roles, setRoles] = React.useState<Role[]>();
@@ -42,6 +43,10 @@ function ListRegister({ setRolesT, rolesT }: Props) {
          setRoles(result);
       });
    }, []);
+
+   useEffect(() => {
+      setState([]);
+   }, [changRole]);
 
    useEffect(() => {
       if (roles) {

@@ -1,4 +1,4 @@
-import {Role} from "./role";
+import { Role } from './role';
 
 export interface User {
    id: string;
@@ -24,36 +24,33 @@ export class UserFormValues {
 }
 
 export class UserFormValuesRegister {
-   userName: string='';
-   dni:string='';
-   email:string='';
-   password:string='';
-   confirmPassword:string='';
-   position:string='';
-   lastName:string='';
-   fullName:string='';
-   roles: Role[]=[];
+   userName: string = '';
+   dni: string = '';
+   email: string = '';
+   password: string = '';
+   confirmPassword: string = '';
+   position: string = '';
+   lastName: string = '';
+   fullName: string = '';
+   roles: Role[] = [];
 
-   constructor(user?: UserFormValuesRegister){
-      if(user){
-         this.userName=user.userName;
-         this.dni= user.dni;
-         this.email= user.email;
-         this.password= user.password;
-         this.confirmPassword= user.confirmPassword;
-         this.position=user.position;
-         this.lastName= user.lastName;
-         this.fullName= user.fullName;
+   constructor(user?: UserFormValuesRegister) {
+      if (user) {
+         this.userName = user.userName;
+         this.dni = user.dni;
+         this.email = user.email;
+         this.password = user.password;
+         this.confirmPassword = user.confirmPassword;
+         this.position = user.position;
+         this.lastName = user.lastName;
+         this.fullName = user.fullName;
          this.roles = user.roles;
-
       }
    }
-
-
 }
 export interface IUserCheck {
-   documentName : string;
-   fullName : string,
+   documentName: string;
+   fullName: string;
    url: string;
    dni: string;
    email: string;

@@ -10,7 +10,7 @@ import { observer } from 'mobx-react-lite';
 
 const user: UserFormValues = {
    dni: '12345678',
-   password: 'password',
+   password: 'P@ssword',
 };
 
 

@@ -50,12 +50,13 @@ export default class UserStore {
       } catch (e) {}
    };
 
-    register = async (creds: UserFormValuesRegister)=>{
+/*    register = async (creds: UserFormValuesRegister)=>{
        try{
           const user = await accountsServices.register(creds);
-          runInAction(()=>(this.user=user))
+          runInAction(()=>(this.user = user))
+
        }catch(e){
           throw e;
        }
-    }
+    }*/
 }

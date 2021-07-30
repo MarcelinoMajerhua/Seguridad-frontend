@@ -13,7 +13,11 @@ function Dashboard() {
             Se encarga de listar los documentos firmados
          </CustomBodyDescription>
          <CustomBody>
-            <div>Desde Dashboards</div>
+            <img
+               alt={''}
+               src={'https://i.postimg.cc/Y2X7r4Ns/logo-unsch-integrantes.png'}
+               style={{ width: '100%', height: '100%' }}
+            />
          </CustomBody>
       </React.Fragment>
    );

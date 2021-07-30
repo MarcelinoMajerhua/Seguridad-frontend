@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import CustomTextField from '../../../../components/custom-text-field/custom-text-field';
 import { Button } from '@material-ui/core';
-import { useStore } from '../../../../store/store';
 import { UserFormValuesRegister } from '../../../../models/user';
-
-import { Role, roleForm } from '../../../../models/role';
+import { Role } from '../../../../models/role';
 import ListRegister from './register-list-role';
+import accountsServices from '../../../../services/accounts-services';
+import CustomSnackbar from '../../../../components/custom-snackbar/custom-snackbar';
+import ButtonLoading from '../../../../components/custom-loading/button-loading';
 
 function RegisterForm() {
-   const { userStore } = useStore();
-
    const [userForm, setUserForm] = useState<UserFormValuesRegister>(new UserFormValuesRegister());
+   const [open, setOpen] = useState(false);
+   const [loading, setLoading] = useState(false);
+   const [changRole, setChangeRole] = useState(false);
 
    const [roles, setRoles] = useState<Role[]>([]);
 
@@ -22,18 +24,35 @@ function RegisterForm() {
    };
 
    useEffect(() => {
-      setUserForm({...userForm, roles:roles})
-   }, [roles])
+      setUserForm({ ...userForm, roles: roles });
+   }, [setUserForm, roles]);
 
    const submit = () => {
-      
-      userStore.register(userForm).catch((e)=>{
-         
-      })
+      setLoading(true);
+      console.log('this user', userForm);
+      accountsServices
+         .register(userForm)
+         .then((response) => {
+            setOpen(true);
+            setLoading(false);
+            console.log(response);
+            setChangeRole(!changRole);
+            setUserForm(new UserFormValuesRegister());
+         })
+         .catch((error) => {
+            console.log(error);
+            setLoading(false);
+         });
    };
 
    return (
       <React.Fragment>
+         <CustomSnackbar
+            open={open}
+            severity={'success'}
+            setOpen={setOpen}
+            message={'Usuario agregado correctamente'}
+         />
          <form
             style={{
                marginTop: '25px',
@@ -120,15 +139,18 @@ function RegisterForm() {
                   />
                </Grid>
                <Grid item xs={12} md={12}>
-                  <ListRegister
-
-                     rolesT={roles}
-                     setRolesT={setRoles}
-                  />
+                  <ListRegister changRole={changRole} rolesT={roles} setRolesT={setRoles} />
                </Grid>
                <Grid item xs={12} md={12}>
                   <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-end' }}>
-                     <Button type={'button'} variant='contained' onClick={submit} color={'primary'}>
+                     <Button
+                        disabled={loading}
+                        type={'button'}
+                        variant='contained'
+                        onClick={submit}
+                        color={'primary'}
+                     >
+                        {loading && <ButtonLoading />}
                         Agregar
                      </Button>
                   </div>
