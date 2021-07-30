@@ -9,15 +9,17 @@ import ButtonLoading from '../../../../components/custom-loading/button-loading'
 import { observer } from 'mobx-react-lite';
 
 const user: UserFormValues = {
-   dni: '73062536',
-   password: 'password',
+   dni: '12345678',
+   password: 'P@ssword',
 };
+
 
 function SignInForm() {
    const classes = useStyles();
    const { userStore } = useStore();
    const [userForm, setUserForm] = useState<UserFormValues>(new UserFormValues(user));
    const [errors, setErrors] = useState('');
+
 
    function changeValueUser(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) {
       const { value, name } = event.target;
@@ -67,7 +69,7 @@ function SignInForm() {
                onClick={submit}
                disabled={userStore.loading}
             >
-               Sign In
+               Iniciar sesión
                {userStore.loading && <ButtonLoading />}
             </Button>
             {/*            <Grid container>
