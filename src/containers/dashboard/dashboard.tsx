@@ -18,7 +18,6 @@ function Dashboard() {
          .list()
          .then((response) => {
             setDocuments(response);
-            console.log(response);
             setInitialLoading(false);
          })
          .then((error) => {

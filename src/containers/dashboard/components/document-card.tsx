@@ -46,6 +46,10 @@ export default function DocumentCard({ document: tempDocument }: Props) {
          });
    };
 
+   const raiseInvoiceClicked = () => {
+      // route to new page by changing window.location
+      window.open(tempDocument.url, '_blank'); //to open new page
+   };
    return (
       <Card className={classes.root}>
          <CardActionArea>
@@ -77,8 +81,8 @@ export default function DocumentCard({ document: tempDocument }: Props) {
                Descargar
                {loading && <ButtonLoading />}
             </Button>
-            <Button size='small' color='primary'>
-               Detalles
+            <Button onClick={raiseInvoiceClicked} size='small' color='primary'>
+               Ver
             </Button>
          </CardActions>
       </Card>
